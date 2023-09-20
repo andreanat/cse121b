@@ -15,14 +15,14 @@ const imageElement = document.getElementById('profileImage');
 const foodElement = document.getElementById('food');
 
 /* Step 4 - Adding Content */
-nameElement.innerHTML = '<strong>${fullname}</strong>';
+nameElement.innerHTML = `<strong>${fullname}</strong>`;
 yearElement.textContent = currentYear;
-imageElement.setAttribute = ('src', profilePicture);
-imageElement.setAttribute('alt', `Profile image of ${fullname}`);
+imageElement.setAttribute ('src', profilePicture);
+imageElement.setAttribute ('alt', `Profile image of ${fullname}`);
 
 /* Step 5 - Array */
 const favoriteFoods = ["Pizza", "Pasta", "Tacos", "Ice Cream"];
-const foodElement = document.getElementById('food');
+foodElement = document.getElementById('food');
 foodElement.textContent = favoriteFoods.join(', ');
 
 const newFavoriteFood = "Tacos";
