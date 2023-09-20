@@ -22,14 +22,17 @@ imageElement.setAttribute ('alt', `Profile image of ${fullname}`);
 
 /* Step 5 - Array */
 const favoriteFoods = ["Pizza", "Pasta", "Tacos", "Ice Cream"];
-foodElement = document.getElementById('food');
+
 foodElement.textContent = favoriteFoods.join(', ');
 
 const newFavoriteFood = "Tacos";
 favoriteFoods.push(newFavoriteFood);
+
 foodElement.innerHTML += '<br>' + newFavoriteFood;
+
 favoriteFoods.shift();
 foodElement.innerHTML += '<br>' + favoriteFoods.join('<br>');
+
 favoriteFoods.pop();
 foodElement.innerHTML += '<br>' + favoriteFoods.join('<br>');
 
