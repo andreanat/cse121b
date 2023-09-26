@@ -13,7 +13,15 @@ document.querySelector('#addNumbers').addEventListener('click',function(){
 });
 
 /* Function Expression - Subtract Numbers */
+function subtract (number1, number2){
+    return number1 - number2;
+}
+document.querySelector('#subtractNumbers').addEventListener('click',function(){
+    let subtractNumber1 = Number(document.querySelector('#subtract1').value);
+    let subtractNumber2 = Number(document.querySelector('#subtract2').value);
 
+    document.querySelector('#difference').value = add (subtractNumber1, subtractNumber2);
+});
 
 /* Arrow Function - Multiply Numbers */
 
