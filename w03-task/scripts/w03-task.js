@@ -20,11 +20,19 @@ document.querySelector('#subtractNumbers').addEventListener('click',function(){
     let subtractNumber1 = Number(document.querySelector('#subtract1').value);
     let subtractNumber2 = Number(document.querySelector('#subtract2').value);
 
-    document.querySelector('#difference').value = add (subtractNumber1, subtractNumber2);
+    document.querySelector('#difference').value = subtract (subtractNumber1, subtractNumber2);
 });
 
 /* Arrow Function - Multiply Numbers */
+function multiply (number1, number2){
+    return number1 * number2;
+}
+document.querySelector('#multiplyNumbers').addEventListener('click',function(){
+    let multiplyNumber1 = Number(document.querySelector('#factor1').value);
+    let multiplyNumber2 = Number(document.querySelector('#factor2').value);
 
+    document.querySelector('#product').value = multiply (multiplyNumber1, multiplyNumber2);
+});
 
 /* Open Function Use - Divide Numbers */
 
