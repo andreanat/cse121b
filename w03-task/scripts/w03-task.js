@@ -35,20 +35,37 @@ document.querySelector('#multiplyNumbers').addEventListener('click',function(){
 });
 
 /* Open Function Use - Divide Numbers */
+function division (number1, number2){
+    return number1 / number2;
+}
+document.querySelector('#divideNumbers').addEventListener('click',function(){
+    let divideNumber1 = Number(document.querySelector('#dividend').value);
+    let divideNumber2 = Number(document.querySelector('#divisor').value);
 
+    document.querySelector('#quotient').value = division (divideNumber1, divideNumber2);
+});
 
 /* Decision Structure */
+
+const currentDate = new Date();
+let currentYear;
+currentYear = currentDate.getFullYear();
+document.getElementById("year").value = currentYear;
 
 
 /* ARRAY METHODS - Functional Programming */
 /* Output Source Array */
+let numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
 /* Output Odds Only Array */
+document.querySelector('#odds').innerHTML = numbersArray.filter(number => number % 2 !== 0).join(', ');
 
 /* Output Evens Only Array */
+document.querySelector('#evens').innerHTML = numbersArray.filter(number => number % 2 === 0).join(', ');
 
 /* Output Sum of Org. Array */
-
-/* Output Multiplied by 2 Array */
-
+let sumArray = numbersArray.reduce((sum, number) => sum + number, 0);
+document.querySelector('#sumOfArray').innerHTML = sum;
 /* Output Sum of Multiplied by 2 Array */
+let sumOfMultipliedArray = numbersArray.map(number => number * 2).reduce((sum, number) => sum + number, 0);
+document.querySelector('sumOfMultiplied').innerHTML = doubledSum;
