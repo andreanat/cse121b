@@ -67,6 +67,10 @@ document.querySelector('#evens').innerHTML = numbersArray.filter(number => numbe
 let sumArray = numbersArray.reduce((sum, number) => sum + number, 0);
 document.querySelector('#sumOfArray').innerHTML = sumArray;
 
+/* Output Source Array Times Two */
+let multipliedArray = numbersArray.map(number => number * 2);
+document.querySelector('#multiplied').innerHTML = multipliedArray.join(', ');
+
 /* Output Sum of Multiplied by 2 Array */
 let sumOfMultipliedArray = numbersArray.map(number => number * 2).reduce((sum, number) => sum + number, 0);
 document.querySelector('#sumOfMultiplied').innerHTML = sumOfMultipliedArray;
