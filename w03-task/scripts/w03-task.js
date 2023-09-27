@@ -65,7 +65,8 @@ document.querySelector('#evens').innerHTML = numbersArray.filter(number => numbe
 
 /* Output Sum of Org. Array */
 let sumArray = numbersArray.reduce((sum, number) => sum + number, 0);
-document.querySelector('#sumOfArray').innerHTML = sum;
+document.querySelector('#sumOfArray').innerHTML = sumArray;
+
 /* Output Sum of Multiplied by 2 Array */
 let sumOfMultipliedArray = numbersArray.map(number => number * 2).reduce((sum, number) => sum + number, 0);
-document.querySelector('sumOfMultiplied').innerHTML = doubledSum;
+document.querySelector('#sumOfMultiplied').innerHTML = sumOfMultipliedArray;
