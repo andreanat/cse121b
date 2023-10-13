@@ -7,7 +7,7 @@ const templeList = [];
 let articleElement = document.createElement("article");
 
 let h3Element = document.createElement("h3");
-h3Element.textContent = temple.templeName;
+h3Element.textContent = templeList.templeName;
 
 let imgElement = document.createElement("img");
 imgElement.src = temple.imageUrl;
