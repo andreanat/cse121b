@@ -1,39 +1,69 @@
+/* W05: Programming Tasks */
+
 /* Declare and initialize global variables */
 const templesElement = document.getElementById("templesElement");
 const templeList = [];
+/* async displayTemples Function */
+let articleElement = document.createElement("article");
 
-/* Async displayTemples Function */
-// This function is typically used to create and display temple elements.
-// You should call it later after fetching temple data and defining your HTML structure.
+let h3Element = document.createElement("h3");
+h3Element.textContent = templeList.templeName;
 
-/* Async getTemples Function using fetch() */
+let imgElement = document.createElement("img");
+imgElement.src = temple.imageUrl;
+imgElement.alt = temple.location;
+
+articleElement.appendChild(h3Element);
+articleElement.appendChild(imgElement);
+templesElement.appendChild(articleElement);
+
+/* async getTemples Function using fetch()*/
 const getTemples = async () => {
-    const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
+    const response = await fetch ("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
     const data = await response.json();
-    templeList.push(...data); // Use spread operator to add the elements from 'data' to 'templeList'
-    // You may want to call displayTemples here if that's your intention.
+    data.forEach((temple) => {
+        templeList.push(temple);
+    });
+    displayTemples(templeList);
     console.log(templeList);
 }
 
 /* reset Function */
-let reset = function () {
-    // Your reset logic here to clear the output
+let reset = function() {
+    const articles = templesElement.querySelectorAll('article');
+    articles.forEach((article) => {
+        templesElement.removeChild(article);
+    });
 };
 
 /* sortBy Function */
-const sortBy = function (temples) {
-    // Sorting or filtering logic for 'temples' can be added here
+const sortBy = function(temples){
 };
-
-// Call the reset function initially to clear the output
 reset();
+const filter = document.getElementById("sortBy").value;
+switch (filter) {
+    case "utah":
+        const utahTemples = temples.filter(temp => temp.location.includes("Utah"));
+        displayTemples(utahTemples);
+        break;
 
-// Add an event listener to handle changes in the "sortBy" element
-document.querySelector("#sortBy").addEventListener("change", () => {
-    const filter = document.getElementById("sortBy").value;
-    // You should handle sorting/filtering based on the selected filter here
-    // and call displayTemples or update the UI accordingly.
-});
+    case "nonutah":
+        const nonUtahTemples = temples.filter(temp => !temp.location.includes("Utah"));
+        displayTemples(nonUtahTemples);
+        break;
 
-// You can call the getTemples function to fetch data and populate the templeList.
+    case "older":
+        const olderTemples = temples.filter(temp => new Date(temp.dedicated) < new Date(1950, 0, 1));
+        displayTemples(olderTemples);
+        break;
+
+    case "all":
+    default:
+        displayTemples(temples);
+        break;
+}
+
 getTemples();
+
+/* Event Listener */
+document.querySelector("#sortBy").addEventListener("change",() => { sortBy(templeList) });
